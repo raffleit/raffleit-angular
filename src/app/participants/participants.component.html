@@ -1,0 +1,38 @@
+<div class="row" style="margin-top: 2em;">
+  <div class="col-md-5">
+    <div class="row">
+      <form lpformnum="1" (ngSubmit)="addParticipant()">
+        <div class="form-group col-md-6">
+          <input [(ngModel)]="newParticipant.name" name="name" id="name" type="text" placeholder="Name" class="form-control" />
+        </div>
+        <div class="form-group col-md-4">
+          <input [(ngModel)]="newParticipant.numberOfTickets" name="numberOfTickets" type="number" placeholder="# tickets" class="form-control">
+        </div>
+        <div class="col-md-2">
+          <input type="submit" value="+" class="btn btn-primary">
+        </div>
+      </form>
+      <table *ngIf="participants.length > 0" class="table">
+        <thead>
+        <tr>
+          <td>Name</td>
+          <td># tickets</td>
+          <td></td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let p of participants">
+          <td>{{p.name}}</td>
+          <td>{{p.numberOfTickets}}</td>
+          <td>
+            <button class="btn btn-link" (click)="onDelete(p)">
+            Remove
+            </button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+    <div></div>
+  </div>
+</div>
