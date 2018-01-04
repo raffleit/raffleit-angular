@@ -1,10 +1,10 @@
 <div id="root">
   <div class="container">
     <ul class="nav nav-pills">
-      <li class="active"><a routerLink="/Participants">Participants</a></li>
-      <li class=""><a routerLink="/Drawing">Drawing</a></li>
+      <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a routerLink="/Participants">Participants</a></li>
+      <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a routerLink="/Drawing">Drawing</a></li>
     </ul>
-    <div class="reset"><a routerLink="/Participants">Reset</a></div>
+    <div class="reset" (click)="reset()"><a href="#">Reset</a></div>
     <router-outlet></router-outlet>
   </div>
 </div>

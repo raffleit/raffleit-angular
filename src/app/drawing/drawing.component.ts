@@ -28,7 +28,7 @@ export class DrawingComponent implements OnInit {
       id: DrawingComponent.randomIntFromInterval(1, 99999999),
       name: participantWinner.name
     };
-    this.winners.push(newWinner);
+    this.winners.unshift(newWinner);
 
     const newParticipants = participants.map(p => {
       if (p.id === participantWinner.id) {

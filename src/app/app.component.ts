@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
+import {ParticipantService} from './participant.service';
+import {WinnerService} from './winner.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +9,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Raffle Drawing Angular';
+  constructor(private winnerService: WinnerService,
+              private participantService: ParticipantService,
+              private router: Router) {
+  }
+
+  reset(): void {
+    this.winnerService.saveWinners([]);
+    this.participantService.saveParticipants([]);
+
+    this.router.navigateByUrl('/Participants');
+  }
 }
