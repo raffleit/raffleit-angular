@@ -1,5 +1,6 @@
-import {Component, OnInit, Renderer, Renderer2} from '@angular/core';
+import {Component, OnInit, Renderer2} from '@angular/core';
 import {Participant} from '../participant';
+import {ParticipantService} from '../participant.service';
 
 @Component({
   selector: 'app-participants',
@@ -22,22 +23,26 @@ export class ParticipantsComponent implements OnInit {
     return Math.floor(Math.random() * (max - min + 1) + min);
   }
 
-  constructor(private renderer: Renderer2) {
+  constructor(private renderer: Renderer2,
+              private participantService: ParticipantService) {
+    this.participants = participantService.getParticipants();
   }
 
   onDelete(participant: Participant): void {
     this.participants = this.participants
       .filter(p => p.id !== participant.id);
-  }
-
-  ngOnInit() {
+    this.participantService.saveParticipants(this.participants);
   }
 
   addParticipant() {
     this.participants.push(this.newParticipant);
+    this.participantService.saveParticipants(this.participants);
     this.newParticipant = ParticipantsComponent.defaultParticipant();
     const onElement = this.renderer.selectRootElement('#name');
     onElement.focus();
 
+  }
+
+  ngOnInit() {
   }
 }

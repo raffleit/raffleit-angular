@@ -1,0 +1,8 @@
+<div class="row" style="margin-top: 2em;">
+  <div class="col-md-7">
+    <button class="btn btn-success btn-lg" (click)="draw()">Draw</button>
+    <ul class="list-unstyled" *ngFor="let w of winners">
+      <li style="font-size: 3em;">{{w.name}}</li>
+    </ul>
+  </div>
+</div>
