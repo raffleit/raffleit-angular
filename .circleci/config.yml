@@ -28,6 +28,6 @@ jobs:
       - run: npm run build
       - run: git checkout --orphan gh-pages
       - run: git rm -rf .
-      - run: mv dist/ .
+      - run: mv dist/* .
       - run: git commit -a -m "Github pages"
       - run: git push origin gh-pages --force
