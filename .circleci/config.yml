@@ -23,3 +23,9 @@ jobs:
       - run: npm lint
       - run: npm test
       - run: npm build
+      - run: git checkout --orphan gh-pages
+      - run: git rm -rf .
+      - run: rm '.gitignore'
+      - run: mv dist/ .
+      - run: git commit -a -m "Github pages"
+      - run: git push origin gh-pages --force
