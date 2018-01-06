@@ -29,5 +29,7 @@ jobs:
       - run: git checkout --orphan gh-pages
       - run: git rm -rf .
       - run: mv dist/* .
+      - run: git config --global user.email "andersems@gmail.com"
+      - run: git config --global user.name "Anders Emil Salvesen"
       - run: git commit -a -m "Github pages"
       - run: git push origin gh-pages --force
