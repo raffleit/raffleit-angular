@@ -23,22 +23,24 @@ export class DrawingComponent implements OnInit {
 
   draw(): void {
     const participants = this.participantService.getParticipants().filter(p => p.numberOfTickets > 0);
-    const participantWinner = drawWinner(participants);
-    const newWinner: Winner = {
-      id: DrawingComponent.randomIntFromInterval(1, 99999999),
-      name: participantWinner.name
-    };
-    this.winners.unshift(newWinner);
+    if (participants.length > 0) {
+      const participantWinner = drawWinner(participants);
+      const newWinner: Winner = {
+        id: DrawingComponent.randomIntFromInterval(1, 99999999),
+        name: participantWinner.name
+      };
+      this.winners.unshift(newWinner);
 
-    const newParticipants = participants.map(p => {
-      if (p.id === participantWinner.id) {
-        p.numberOfTickets = p.numberOfTickets - 1;
-      }
-      return p;
-    });
+      const newParticipants = participants.map(p => {
+        if (p.id === participantWinner.id) {
+          p.numberOfTickets = p.numberOfTickets - 1;
+        }
+        return p;
+      });
 
-    this.participantService.saveParticipants(newParticipants);
-    this.winnerService.saveWinners(this.winners);
+      this.participantService.saveParticipants(newParticipants);
+      this.winnerService.saveWinners(this.winners);
+    }
   }
 
   ngOnInit() {
