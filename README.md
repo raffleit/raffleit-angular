@@ -12,7 +12,7 @@ Typescript is a good language | Typescript is not as future-proof as JavaScript
 
 
 ## Known Bugs
-- When adding a participant, the focus isn't moved to the name input.
+- No validation on name and number of tickets when adding a participant
 
 ## Command Line Stuff
 
