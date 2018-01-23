@@ -1,4 +1,4 @@
-# Raffle It! Angular &middot; [![CircleCI](https://circleci.com/gh/raffleit/raffleit-angular.svg?style=shield)](https://circleci.com/gh/raffleit/raffleit-angular) [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/raffleit/raffleit-elm/blob/master/LICENSE)
+# Raffle It! Angular &middot; [![CircleCI](https://circleci.com/gh/raffleit/raffleit-angular.svg?style=shield)](https://circleci.com/gh/raffleit/raffleit-angular) [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/raffleit/raffleit-angular/blob/master/LICENSE)
 
 This is an implementation of Raffle It! in Angular (2-4, etc).
 
